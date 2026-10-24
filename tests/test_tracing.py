@@ -301,3 +301,31 @@ def test_format_call_fallback_also_redacts_sensitive_kwargs():
     rendered = _format_call(dict.update, (), {"password": "hunter2"})
     assert "hunter2" not in rendered
     assert "<redacted>" in rendered
+
+
+# ---------------------------------------------------------------------
+# Cas limites de _safe_repr / _format_call (issue #50, palier 2).
+# ---------------------------------------------------------------------
+
+
+def test_safe_repr_survives_a_failing_repr():
+    class _ReprCasse:
+        def __repr__(self):
+            raise RuntimeError("repr cassé")
+
+    assert _safe_repr(_ReprCasse()) == "<repr() a levé RuntimeError('repr cassé')>"
+
+
+def test_format_call_skips_parameters_left_to_their_default():
+    def f(a, b=2):
+        return a + b
+
+    assert _format_call(f, (1,), {}) == "a=1"
+
+
+def test_format_call_expands_var_positional_and_redacts_var_keyword():
+    def f(*valeurs, **options):
+        return valeurs, options
+
+    rendered = _format_call(f, (1, b"xx"), {"mode": "rapide", "api_token": "s3cr3t"})
+    assert rendered == "1, <bytes: 2 o.>, mode='rapide', api_token=<redacted>"
