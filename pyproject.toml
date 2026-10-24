@@ -94,9 +94,11 @@ branch = true
 source = ["src"]
 
 [tool.coverage.report]
-# Seuil bloquant de l'équipe : 95 % visé (décision du 21/10/2026,
-# Mathilde-Team/.github#9). Palier 1 (issue #50) : mesure du job Qualité au
-# 22/10/2026 (58,25 %) arrondie à l'entier inférieur ; à relever à chaque PR
-# de tests. Déclaré ici seulement, lu par `pytest --cov` dans ci.yml.
-fail_under = 58
+# Seuil bloquant de l'équipe : 95 % (décision du 21/10/2026,
+# Mathilde-Team/.github#9). Palier 1 (issue #50) : 58 % (mesure du
+# 22/10/2026). Palier 2 (issue #50) : mesure du job Qualité au 24/10/2026
+# à 100 % lignes et branches (doublure du shim, tests/test_core_doublure.py),
+# seuil porté à la cible de l'équipe. Déclaré ici seulement, lu par
+# `pytest --cov` dans ci.yml.
+fail_under = 95
 show_missing = true
