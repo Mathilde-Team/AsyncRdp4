@@ -11,6 +11,9 @@ jobs:
   quality:
     name: Qualité (lint, tests)
     runs-on: ubuntu-latest
+    # Durée normale : moins d'une minute. Sans plafond, un apt-get bloqué
+    # gelait le job (et le relais vers main) jusqu'aux 360 min par défaut.
+    timeout-minutes: 15
 
     steps:
       - name: Checkout du dépôt
@@ -21,9 +24,10 @@ jobs:
         # (setup.py → build_ffi.py → pkg-config freerdp3/freerdp-client3/
         # winpr3). freerdp3-dev est dans l'universe d'Ubuntu 24.04
         # (même installation que install.sh, « testé contre Ubuntu 24.04 »).
+        timeout-minutes: 5
         run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential pkg-config freerdp3-dev libwinpr3-dev
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 update
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 install -y build-essential pkg-config freerdp3-dev libwinpr3-dev
 
       - name: Installation de uv
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0

@@ -2,6 +2,11 @@
 
 Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les numéros suivent [SemVer](https://semver.org/lang/fr/), et la version de `pyproject.toml` est égale au tag.
 
+## [Non publié]
+
+### Ajouté
+- Règles de protection versionnées `.github/branch-protection/{main,dev}.json` (relevées sur la protection réelle du 22/10/2026), vérifiées par le workflow `branch-protection.yml` (push sur main/dev, chaque jour) et `scripts/check_branch_protection.py` (socle Mathilde-Team/.github#1, #61).
+
 ## [0.1.0] - 2026-10-22
 
 Première version publiée sous forme de release GitHub.
