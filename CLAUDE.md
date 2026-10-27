@@ -1,5 +1,14 @@
 # CLAUDE.md — asyncrdp
 
+
+## Mission
+
+Avant toute intervention autonome sur ce dépôt : lire et appliquer la
+mission d'équipe :
+https://github.com/Mathilde-Team/.github/blob/dev/MISSION.md
+(le socle qualité, SOCLE.md, prime sur la mission en cas de conflit ; si
+le fichier est absent sur `dev`, le chercher sur `main`).
+
 Fichier court, à lire en entier à chaque reprise de session. Le détail
 (raisonnement, décisions de conception, bugs) est ailleurs — voir
 « Pour aller plus loin » en bas, à n'ouvrir qu'au besoin, pas
