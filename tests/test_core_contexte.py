@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Tests de `_core.py` sur un vrai contexte FreeRDP, sans serveur (issue #50).
 
 `asyncrdp_context_new()` crée un vrai `rdpContext` (libfreerdp3) sans se

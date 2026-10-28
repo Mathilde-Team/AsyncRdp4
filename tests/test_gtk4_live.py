@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 Tests « live » des vrais ponts GTK4 (integrations/gtk4/gcm_gtk4_*_bridge.py)
 — PAS les doublures de tests/gtk_stub/. Contrairement à test_gtk4_bridges.py

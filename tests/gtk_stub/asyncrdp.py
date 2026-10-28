@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 Faux module `asyncrdp` pour `tests/gtk_stub/` — évite de dépendre du
 binding cffi compilé (`_asyncrdp_cffi`, nécessite FreeRDP3 installé +

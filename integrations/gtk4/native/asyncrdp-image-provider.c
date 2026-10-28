@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
 /* asyncrdp-image-provider.c — voir asyncrdp-image-provider.h pour le
  * contexte complet et la raison d'être de ce fichier. */
 #include "asyncrdp-image-provider.h"

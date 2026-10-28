@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Boucle asyncio intégrée à la boucle GLib d'une Gtk.Application.
 
 Deux intégrateurs possibles, choisis à l'exécution :

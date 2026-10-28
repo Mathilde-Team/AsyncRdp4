@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 test_connect_minimal.py — premier test manuel, volontairement réduit au
 strict nécessaire : connexion, quelques frames, déconnexion propre. Pas

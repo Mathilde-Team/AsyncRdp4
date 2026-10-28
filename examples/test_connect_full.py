@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 test_connect_full.py — test manuel plus complet qu'test_connect_minimal.py :
 en plus de la connexion de base, exerce clipboard (texte), clavier/souris,

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 tests/test_no_circular_imports.py — absence de cycle d'imports entre les
 modules internes du projet (`src/asyncrdp/`, `integrations/gtk4/`).

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 setup.py minimal : le reste de la métadonnée du package vit dans
 pyproject.toml (PEP 621) — ce fichier n'existe que parce que le mécanisme

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 Stub minimal de `gi.repository` pour tester la logique pure des ponts
 GTK4 de asyncrdp (`integrations/gtk4/*.py`) sans GTK4 installé ni

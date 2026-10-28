@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 tests/test_gtk4_bridges.py — logique pure des ponts GTK4
 (`integrations/gtk4/gcm_gtk4_display_bridge.py` et
