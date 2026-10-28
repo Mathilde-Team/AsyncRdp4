@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 tests/test_tracing.py — vérifie le décorateur `asyncrdp.tracing.traced`
 en isolation, avec des fonctions/classes fabriquées pour l'occasion —

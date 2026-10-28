@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 asyncrdp — binding asyncio sur libfreerdp3 via cffi (mode API).
 

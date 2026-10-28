@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Compare la protection réelle d'une branche à la règle versionnée.
 
 Règle : .github/branch-protection/<branche>.json (format de l'API GitHub

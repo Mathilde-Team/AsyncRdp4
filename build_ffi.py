@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 build_ffi.py — build cffi en mode API (out-of-line), pas ABI/dlopen.
 

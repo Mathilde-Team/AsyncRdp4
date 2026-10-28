@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 probe_rdpdr_devices.py — annonce une imprimante, un port série, un port
 parallèle et un disque à un serveur RDP, puis se déconnecte.

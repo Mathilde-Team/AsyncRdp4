@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Tests de `_core.py` côté Python, avec une doublure du shim C (issue #50, palier 2).
 
 Les classes `Keyboard`, `Mouse`, `Clipboard`, `Client`, les callbacks

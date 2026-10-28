@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 tests/test_gtk4_demo_viewer.py — logique pure de l'assemblage GTK4 ajouté
 le 2026-09-18 (gcm_gtk4_rdp_session.RdpSession, gcm_gtk4_demo_viewer.
