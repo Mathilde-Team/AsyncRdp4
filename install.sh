@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: GPL-3.0-or-later
 # install.sh — installe les dépendances système puis le package asyncrdp
 # (via uv, cf. migration du 2026-09-15 — voir docs/sessions/session-28.md).
 #

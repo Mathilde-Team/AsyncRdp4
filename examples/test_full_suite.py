@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 test_full_suite.py — script de test complet, consolidant toute la campagne
 de validation menée contre un vrai serveur RDP (xrdp) : connexion de base,

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 tests/test_gtk4_clipboard_file_download.py — logique pure du téléchargement
 RDP -> local du pont presse-papier GTK4

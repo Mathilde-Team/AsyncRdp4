@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 Tests unitaires du format FileGroupDescriptorW (MS-RDPECLIP §2.2.5.2.3) —
 la partie clipboard fichiers la plus délicate à avoir bien codée (calcul

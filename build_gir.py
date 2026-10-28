@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 build_gir.py — build de integrations/gtk4/native/, une petite bibliothèque
 GObject Introspection écrite en C pur, distincte du binding cffi principal

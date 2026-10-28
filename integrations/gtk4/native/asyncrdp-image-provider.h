@@ -1,3 +1,4 @@
+/* SPDX-License-Identifier: GPL-3.0-or-later */
 /* asyncrdp-image-provider.h
  *
  * GdkContentProvider écrit en C pur, pas en sous-classe PyGObject.

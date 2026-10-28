@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68", "cffi>=1.15.0"]
+requires = ["setuptools>=77", "cffi>=1.15.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,7 +8,8 @@ version = "0.1.0"
 description = "Binding asyncio sur libfreerdp3 (RDP) via cffi — équivalent RDP d'asyncvnc2"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
 authors = [
     { name = "Mathilde" },
 ]
@@ -44,8 +45,8 @@ usb = ["pyusb>=1.2.0"]
 test = ["pytest>=7.0", "pytest-asyncio>=0.21", "pytest-cov>=7.1.0"]
 
 [project.urls]
-Homepage = "https://github.com/<votre-compte>/asyncrdp"
-Documentation = "https://github.com/<votre-compte>/asyncrdp/blob/main/README.md"
+Homepage = "https://github.com/Mathilde-Team/AsyncRdp4"
+Documentation = "https://github.com/Mathilde-Team/AsyncRdp4/blob/main/README.md"
 
 [dependency-groups]
 # Outillage de développement (jamais installé chez un utilisateur final du

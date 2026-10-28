@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 Tests unitaires des dataclasses de configuration — construction, valeurs
 par défaut, pas d'appel réseau. RdpOptions._apply() (qui parle au shim C)

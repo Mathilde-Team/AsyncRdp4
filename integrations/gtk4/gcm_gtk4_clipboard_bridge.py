@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 gcm_gtk4_clipboard_bridge.py
 

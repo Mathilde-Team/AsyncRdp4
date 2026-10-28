@@ -263,3 +263,22 @@ Roadmap d'intégration : [Gcm4 #106](https://github.com/MathildeDec/Gcm4/issues/
 Tableau de bord : [Gcm4 #107](https://github.com/MathildeDec/Gcm4/issues/107)
 Annonce du projet : [Gcm4 #103](https://github.com/MathildeDec/Gcm4/issues/103)
 Liaison plugin : [Gcm4 #105](https://github.com/MathildeDec/Gcm4/issues/105)
+
+---
+
+## Licence
+
+AsyncRdp4 est distribué sous **GNU General Public License v3.0 ou ultérieure** (`GPL-3.0-or-later`) : voir [`LICENSE`](./LICENSE). Chaque fichier source porte l'en-tête `SPDX-License-Identifier: GPL-3.0-or-later`.
+
+Dépendances (licences compatibles avec la GPLv3) :
+
+| Dépendance | Licence |
+| --- | --- |
+| libfreerdp3 (FreeRDP, bibliothèque système) | Apache-2.0 |
+| GTK 4 (bibliothèque système, extra `gtk4`) | LGPL-2.1-or-later |
+| cffi | MIT-0 |
+| loguru | MIT |
+| PyGObject (extra `gtk4`) | LGPL-2.1-or-later |
+| numpy (extra `gtk4`) | BSD-3-Clause (et licences permissives associées) |
+| pyusb (extra `usb`) | BSD-3-Clause |
+| gbulb, Pillow (tests GTK4 uniquement) | Apache-2.0, MIT-CMU |

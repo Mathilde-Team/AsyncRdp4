@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
 """
 usb.py — énumération des périphériques USB locaux (libusb, via pyusb) et
 construction des chaînes de sélection attendues par `RdpOptions.usb_devices`
