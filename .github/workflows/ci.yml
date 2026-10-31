@@ -19,6 +19,9 @@ jobs:
       - name: Checkout du dépôt
         uses: actions/checkout@v7
 
+      - name: Garde-fous de publication sur tag
+        run: python3 tests/test_workflow_release.py
+
       - name: Dépendances système (FreeRDP 3)
         # Le shim cffi (_shim.c) est compilé à l'installation du package
         # (setup.py → build_ffi.py → pkg-config freerdp3/freerdp-client3/
