@@ -4,6 +4,10 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les numéros 
 
 ## [Non publié]
 
+- CI et publication : repli GitHub autorisé, publication manuelle sur un tag
+  déjà livré dans main, vérification d’ascendance et archives du tag exact.
+
+
 ### Modifié
 - Licence passée de MIT à GPL-3.0-or-later : texte officiel dans `LICENSE`, `license = "GPL-3.0-or-later"` (PEP 639, setuptools ≥ 77) et URLs du dépôt dans `pyproject.toml`, en-têtes SPDX dans les sources, section Licence du README (#68).
 
