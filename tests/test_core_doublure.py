@@ -131,6 +131,29 @@ class TestClavier:
             Keyboard(CTX).key_press("zzz")
         assert "asyncrdp_send_scancode_key" not in faux.noms()
 
+    def test_combo_appui_puis_relache_inverse(self, faux) -> None:
+        codes = {b"ctrl": 0x1D, b"alt": 0x38, b"delete": 0x153}
+        faux.retours["asyncrdp_scancode_from_name"] = lambda nom: codes[nom]
+        Keyboard(CTX).combo("ctrl", "alt", "delete")
+        assert faux.arguments("asyncrdp_send_scancode_key") == [
+            (CTX, 0x1D, 1),
+            (CTX, 0x38, 1),
+            (CTX, 0x153, 1),
+            (CTX, 0x153, 0),
+            (CTX, 0x38, 0),
+            (CTX, 0x1D, 0),
+        ]
+
+    def test_combo_touche_inconnue_rien_envoye(self, faux) -> None:
+        faux.retours["asyncrdp_scancode_from_name"] = lambda nom: 0 if nom == b"zzz" else 0x1D
+        with pytest.raises(ValueError, match="touche inconnue"):
+            Keyboard(CTX).combo("ctrl", "zzz")
+        assert "asyncrdp_send_scancode_key" not in faux.noms()
+
+    def test_combo_vide(self, faux) -> None:
+        with pytest.raises(ValueError, match="vide"):
+            Keyboard(CTX).combo()
+
 
 class TestSouris:
     def test_move_puis_click_a_la_position_courante(self, faux) -> None:

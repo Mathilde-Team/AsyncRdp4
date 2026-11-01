@@ -4,6 +4,10 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les numéros 
 
 ## [Non publié]
 
+- Clavier : `Keyboard.combo(*touches)` envoie une combinaison (appui dans
+  l'ordre, relâchement inverse, touches vérifiées avant tout envoi) ;
+  nouvelles touches nommées `win`/`super` et `print`/`printscreen`. Sert au
+  menu « Touches spéciales » du plugin rdp de Gcm4 (Gcm4 #71).
 - CI et publication : repli GitHub autorisé, publication manuelle sur un tag
   déjà livré dans main, vérification d’ascendance et archives du tag exact.
 
