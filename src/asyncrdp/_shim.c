@@ -1095,6 +1095,10 @@ unsigned int asyncrdp_scancode_from_name(const char* name)
     if (strcmp(name, "ctrl") == 0)        return RDP_SCANCODE_LCONTROL;
     if (strcmp(name, "alt") == 0)         return RDP_SCANCODE_LMENU;
     if (strcmp(name, "capslock") == 0)    return RDP_SCANCODE_CAPSLOCK;
+    if (strcmp(name, "win") == 0 || strcmp(name, "super") == 0)
+        return RDP_SCANCODE_LWIN;
+    if (strcmp(name, "print") == 0 || strcmp(name, "printscreen") == 0)
+        return RDP_SCANCODE_PRINTSCREEN;
     if (strcmp(name, "f1") == 0)  return RDP_SCANCODE_F1;
     if (strcmp(name, "f2") == 0)  return RDP_SCANCODE_F2;
     if (strcmp(name, "f3") == 0)  return RDP_SCANCODE_F3;

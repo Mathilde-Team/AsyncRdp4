@@ -396,7 +396,7 @@ class Keyboard:
     def key_press(self, key_name: str) -> None:
         """Touche nommée (voir asyncrdp_scancode_from_name côté shim pour
         la liste couverte : return, tab, backspace, escape, flèches,
-        f1-f12, etc.)."""
+        f1-f12, win, print, etc.)."""
         scancode = shim.asyncrdp_scancode_from_name(key_name.encode())
         if scancode == 0:
             logger.warning("Keyboard.key_press() : touche inconnue {!r}", key_name)
@@ -404,6 +404,31 @@ class Keyboard:
         logger.debug("Keyboard.key_press() : {!r} (scancode={})", key_name, scancode)
         shim.asyncrdp_send_scancode_key(self._context, scancode, 1)
         shim.asyncrdp_send_scancode_key(self._context, scancode, 0)
+
+    @traced
+    def combo(self, *key_names: str) -> None:
+        """Combinaison de touches nommées (``combo("ctrl", "alt", "delete")``) :
+        appui dans l'ordre, relâchement dans l'ordre inverse. Toutes les
+        touches sont vérifiées avant d'envoyer quoi que ce soit (même liste
+        que key_press(), plus ``win`` et ``print``).
+
+        Raises:
+            ValueError: aucune touche, ou touche inconnue.
+        """
+        if not key_names:
+            raise ValueError("combinaison vide")
+        scancodes = []
+        for key_name in key_names:
+            scancode = shim.asyncrdp_scancode_from_name(key_name.encode())
+            if scancode == 0:
+                logger.warning("Keyboard.combo() : touche inconnue {!r}", key_name)
+                raise ValueError(f"touche inconnue : {key_name!r}")
+            scancodes.append(scancode)
+        logger.debug("Keyboard.combo() : {!r}", "+".join(key_names))
+        for scancode in scancodes:
+            shim.asyncrdp_send_scancode_key(self._context, scancode, 1)
+        for scancode in reversed(scancodes):
+            shim.asyncrdp_send_scancode_key(self._context, scancode, 0)
 
 
 class Mouse:
