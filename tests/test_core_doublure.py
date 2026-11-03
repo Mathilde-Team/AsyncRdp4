@@ -131,6 +131,27 @@ class TestClavier:
             Keyboard(CTX).key_press("zzz")
         assert "asyncrdp_send_scancode_key" not in faux.noms()
 
+    def test_key_down_key_up(self, faux) -> None:
+        """key_down()/key_up() appuient et relâchent SÉPARÉMENT — pour les
+        combinaisons (Ctrl+Alt+Suppr) où key_press(), qui fait down+up
+        d'un bloc, ne permet pas de maintenir une touche de modification."""
+        faux.retours["asyncrdp_scancode_from_name"] = 0x1D
+        Keyboard(CTX).key_down("ctrl")
+        Keyboard(CTX).key_up("ctrl")
+        assert faux.arguments("asyncrdp_send_scancode_key") == [(CTX, 0x1D, 1), (CTX, 0x1D, 0)]
+
+    def test_key_down_touche_inconnue(self, faux) -> None:
+        faux.retours["asyncrdp_scancode_from_name"] = 0
+        with pytest.raises(ValueError, match="touche inconnue"):
+            Keyboard(CTX).key_down("zzz")
+        assert "asyncrdp_send_scancode_key" not in faux.noms()
+
+    def test_key_up_touche_inconnue(self, faux) -> None:
+        faux.retours["asyncrdp_scancode_from_name"] = 0
+        with pytest.raises(ValueError, match="touche inconnue"):
+            Keyboard(CTX).key_up("zzz")
+        assert "asyncrdp_send_scancode_key" not in faux.noms()
+
 
 class TestSouris:
     def test_move_puis_click_a_la_position_courante(self, faux) -> None:
