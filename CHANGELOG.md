@@ -7,6 +7,13 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). Les numéros 
 - CI et publication : repli GitHub autorisé, publication manuelle sur un tag
   déjà livré dans main, vérification d’ascendance et archives du tag exact.
 
+### Ajouté
+- `Keyboard.key_down()` / `Keyboard.key_up()` : appui et relâchement séparés
+  d'une touche nommée, pour envoyer des combinaisons où une touche de
+  modification doit être maintenue (ex. Ctrl+Alt+Suppr pour le futur onglet
+  RDP de GCM). `key_press()` (down+up d'un bloc) reste inchangé ; les trois
+  méthodes partagent la même résolution de scancode et le même refus des
+  touches inconnues.
 
 ### Modifié
 - Licence passée de MIT à GPL-3.0-or-later : texte officiel dans `LICENSE`, `license = "GPL-3.0-or-later"` (PEP 639, setuptools ≥ 77) et URLs du dépôt dans `pyproject.toml`, en-têtes SPDX dans les sources, section Licence du README (#68).

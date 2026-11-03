@@ -393,16 +393,42 @@ class Keyboard:
             shim.asyncrdp_send_unicode_key(self._context, code, 0)
 
     @traced
-    def key_press(self, key_name: str) -> None:
-        """Touche nommée (voir asyncrdp_scancode_from_name côté shim pour
-        la liste couverte : return, tab, backspace, escape, flèches,
-        f1-f12, etc.)."""
+    def _scancode_for(self, key_name: str) -> int:
+        """Résout un nom de touche en scancode (0 si inconnu du shim)."""
         scancode = shim.asyncrdp_scancode_from_name(key_name.encode())
         if scancode == 0:
-            logger.warning("Keyboard.key_press() : touche inconnue {!r}", key_name)
+            logger.warning("Keyboard : touche inconnue {!r}", key_name)
             raise ValueError(f"touche inconnue : {key_name!r}")
-        logger.debug("Keyboard.key_press() : {!r} (scancode={})", key_name, scancode)
+        logger.debug("Keyboard : {!r} (scancode={})", key_name, scancode)
+        return scancode
+
+    @traced
+    def key_press(self, key_name: str) -> None:
+        """Touche nommée, appui puis relâchement immédiats (voir
+        asyncrdp_scancode_from_name côté shim pour la liste couverte :
+        return, tab, backspace, escape, flèches, f1-f12, etc.). Pour
+        maintenir une touche de modification pendant une combinaison
+        (ex. Ctrl+Alt+Suppr), préférer key_down()/key_up()."""
+        scancode = self._scancode_for(key_name)
         shim.asyncrdp_send_scancode_key(self._context, scancode, 1)
+        shim.asyncrdp_send_scancode_key(self._context, scancode, 0)
+
+    @traced
+    def key_down(self, key_name: str) -> None:
+        """Appuie une touche nommée SANS la relâcher — pour envoyer des
+        combinaisons de touches de modification maintenues (ex.
+        Ctrl+Alt+Suppr : key_down('ctrl'), key_down('alt'),
+        key_press('delete'), key_up('alt'), key_up('ctrl')). Chaque
+        key_down doit être suivi d'un key_up sur la même touche."""
+        scancode = self._scancode_for(key_name)
+        shim.asyncrdp_send_scancode_key(self._context, scancode, 1)
+
+    @traced
+    def key_up(self, key_name: str) -> None:
+        """Relâche une touche nommée préalablement appuyée par key_down().
+        Sans effet d'état côté client : le shim fait suivre le relâchement
+        tel quel au serveur, comme les autres événements clavier."""
+        scancode = self._scancode_for(key_name)
         shim.asyncrdp_send_scancode_key(self._context, scancode, 0)
 
 
