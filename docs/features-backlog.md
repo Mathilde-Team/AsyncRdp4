@@ -59,7 +59,17 @@ Légende : ✅ testé en conditions réelles avec de vraies données · ⚠️ i
 | RemoteApp / RAIL | ⚠️ | Implémenté en mode simplifié (une appli plein écran) — pas de vraie gestion multi-fenêtres |
 | Cookie de redirection / load balancing RDS | ⚠️ | Implémenté, pas de ferme RDS disponible pour tester |
 
-## Intégration GTK4 (pour le futur plugin GCM)
+## Intégration GTK4 (plugin RDP de GCM)
+
+Mise à jour 2026-11-08 : le plugin RDP de GCM est livré dans le dépôt Gcm4
+(`plugins/rdp/`, contrat v1, issues Gcm4 #105/#71) — il importe `integrations/gtk4`
+tel quel via la clé `integrations` de `[plugin rdp]` / `ASYNCRDP_GTK4_DIR`.
+La réserve asyncio du scopage (#36) est tranchée : installer
+`GLibEventLoopPolicy` depuis un plugin d'une application déjà lancée reste sans
+effet (constaté le 2026-11-01) ; gcm4 installe la politique avant
+`Gtk.Application.run` (`gcm4.ui.boucle`) et le plugin refuse l'ouverture sans
+asyncio (`asyncio_disponible()`). Le packaging par entry-point reste différé
+(chargement en mode source, Gcm4 #288).
 
 | Fonctionnalité | Statut | Détail |
 |---|---|---|
