@@ -171,7 +171,7 @@ def usb_device_node_path(device: UsbDeviceInfo) -> str:
 @traced
 def usb_has_rw_access(device: UsbDeviceInfo) -> bool | None:
     """Diagnostic de permissions pour `device`, pensé pour être appelé
-    par un appelant (ex. futur plugin GCM) *avant* de tenter une
+    par un appelant (ex. plugin rdp de gcm4) *avant* de tenter une
     redirection, plutôt que de laisser l'échec remonter tard et de façon
     cryptique depuis libusb/urbdrc (`LIBUSB_ERROR_ACCESS`/
     `LIBUSB_ERROR_IO`, confirmé le 2026-09-07 contre un vrai second

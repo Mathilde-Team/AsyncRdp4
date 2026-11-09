@@ -5,7 +5,7 @@ gcm_gtk4_rdp_session.py
 Assemble un Client asyncrdp connecté avec les deux ponts GTK4 existants
 (RdpView pour l'affichage/les entrées, ClipboardBridge pour le
 presse-papier) et porte leur cycle de vie commun : une instance de
-RdpSession = une session RDP complète dans un futur onglet GCM.
+RdpSession = une session RDP complète dans un onglet GCM (plugin rdp de gcm4).
 
 Jusqu'ici chaque pont était instancié et vérifié séparément (voir
 tests/test_gtk4_live.py) — jamais assemblés dans un seul objet
